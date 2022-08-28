@@ -1,0 +1,9 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "Dila_99118",
+    "database": "digital-room",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
