@@ -11,6 +11,9 @@ module.exports = {
       name: {
         type: Sequelize.STRING,
       },
+      imgUrl: {
+        type: Sequelize.STRING,
+      },
       description: {
         type: Sequelize.TEXT,
       },
@@ -22,6 +25,9 @@ module.exports = {
       },
       serviceCharge: {
         type: Sequelize.INTEGER,
+      },
+      location: {
+        type: Sequelize.STRING,
       },
       UserId: {
         type: Sequelize.INTEGER,

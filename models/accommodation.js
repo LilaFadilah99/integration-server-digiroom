@@ -29,6 +29,20 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
       },
+      imgUrl: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notNull: {
+            args: true,
+            msg: "image cannot null",
+          },
+          notEmpty: {
+            args: true,
+            msg: "image cannot empty",
+          },
+        },
+      },
       description: {
         type: DataTypes.TEXT,
         allowNull: false,
@@ -56,8 +70,8 @@ module.exports = (sequelize, DataTypes) => {
             msg: "Room Capacity cannot empty",
           },
           min: {
-            args: 20000,
-            msg: "Minimum Room Capacity is 20000",
+            args: 1,
+            msg: "minimum room capacity is 1",
           },
         },
       },
@@ -90,6 +104,20 @@ module.exports = (sequelize, DataTypes) => {
           notEmpty: {
             args: true,
             msg: "Service Charge cannot empty",
+          },
+        },
+      },
+      location: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notNull: {
+            args: true,
+            msg: "location cannot null",
+          },
+          notEmpty: {
+            args: true,
+            msg: "location cannot empty",
           },
         },
       },

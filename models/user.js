@@ -1,5 +1,6 @@
 "use strict";
 const { Model } = require("sequelize");
+const { hashPassword } = require("../helpers/bcrypt");
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -9,8 +10,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Model.hasMany(models.Accommodation, { foreignKey: "UserId" });
-      Model.hasMany(models.Account, { foreignKey: "UserId" });
+      User.hasMany(models.Accommodation, { foreignKey: "UserId" });
+      User.hasMany(models.Account, { foreignKey: "UserId" });
     }
   }
   User.init(
@@ -32,6 +33,10 @@ module.exports = (sequelize, DataTypes) => {
       email: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: {
+          args: true,
+          msg: 'Email is already exist'
+        },
         validate: {
           notNull: {
             args: true,
@@ -82,6 +87,14 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     {
+      hooks: {
+        beforeCreate(user) {
+          user.password = hashPassword(user.password);
+        },
+        beforeUpdate: (user) => {
+          user.password = hashPassword(user.password);
+        },
+      },
       sequelize,
       modelName: "User",
     }
