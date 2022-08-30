@@ -49,6 +49,7 @@ class AccomodationController {
 
       response.status(200).json(returning);
     } catch (error) {
+      console.log(error);
       next(error);
     }
   }
@@ -68,7 +69,6 @@ class AccomodationController {
     let updatedBy = request.user.email;
     try {
       let getaccomodation = await Accommodation.findOne({ where: { id: id } });
-      console.log(getaccomodation);
       let accomodation = await Accommodation.destroy({ where: { id: id }, returning: true });
       if (!accomodation) throw { message: "Data Not Found", status: 404 };
 
@@ -77,6 +77,27 @@ class AccomodationController {
       let history = await History.create({ name, description: historyDescription, updatedBy });
 
       response.status(200).json(`succes to delete accomodation id ${id}`);
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  static async editStatusAccomodation(request, response, next) {
+    const { id } = request.params;
+    let { status } = request.body;
+    let updatedBy = request.user.email;
+    try {
+      let getaccomodation = await Accommodation.findByPk(id);
+      let [accomodation, returning] = await Accommodation.update({ status }, { where: { id: id }, returning: true });
+      if (accomodation === 0) throw { message: "Data Not Found", status: 404 };
+
+      let beforeStatus = getaccomodation.status;
+      let afterStatus = returning[0].status;
+      let historyDescription = `Accommodation with id ${id} status has been updated from ${beforeStatus} to ${afterStatus}`;
+      let name = getaccomodation.name;
+      let history = await History.create({ name, description: historyDescription, updatedBy });
+
+      response.status(200).json(returning[0]);
     } catch (error) {
       next(error);
     }

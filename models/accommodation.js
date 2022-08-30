@@ -121,6 +121,10 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
       },
+      status: {
+        type: DataTypes.STRING,
+        defaultValue: "active",
+      },
       UserId: {
         type: DataTypes.INTEGER,
         allowNull: false,

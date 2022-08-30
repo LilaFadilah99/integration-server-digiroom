@@ -29,6 +29,10 @@ module.exports = {
       location: {
         type: Sequelize.STRING,
       },
+      status: {
+        type: Sequelize.STRING,
+        defaultValue: "active",
+      },
       UserId: {
         type: Sequelize.INTEGER,
         references: {
