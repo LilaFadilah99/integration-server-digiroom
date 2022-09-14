@@ -93,8 +93,23 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
       },
+      facility: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notNull: {
+            args: true,
+            msg: "facility cannot null",
+          },
+          notEmpty: {
+            args: true,
+            msg: "facility cannot empty",
+          },
+        },
+      },
       serviceCharge: {
         type: DataTypes.INTEGER,
+        defaultValue: 0,
         allowNull: false,
         validate: {
           notNull: {
@@ -104,6 +119,21 @@ module.exports = (sequelize, DataTypes) => {
           notEmpty: {
             args: true,
             msg: "Service Charge cannot empty",
+          },
+        },
+      },
+      cleaningFee: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
+        allowNull: false,
+        validate: {
+          notNull: {
+            args: true,
+            msg: "Cleaning fee cannot null",
+          },
+          notEmpty: {
+            args: true,
+            msg: "Cleaning fee cannot empty",
           },
         },
       },
@@ -136,6 +166,34 @@ module.exports = (sequelize, DataTypes) => {
           notEmpty: {
             args: true,
             msg: "User cannot empty",
+          },
+        },
+      },
+      CategoryId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          notNull: {
+            args: true,
+            msg: "Category cannot null",
+          },
+          notEmpty: {
+            args: true,
+            msg: "Category cannot empty",
+          },
+        },
+      },
+      TypeId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          notNull: {
+            args: true,
+            msg: "TypeId cannot null",
+          },
+          notEmpty: {
+            args: true,
+            msg: "TypeId cannot empty",
           },
         },
       },

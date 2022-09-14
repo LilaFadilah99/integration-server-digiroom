@@ -23,8 +23,16 @@ module.exports = {
       price: {
         type: Sequelize.INTEGER,
       },
+      facility: {
+        type: Sequelize.STRING,
+      },
       serviceCharge: {
         type: Sequelize.INTEGER,
+        defaultValue: 0,
+      },
+      cleaningFee: {
+        type: Sequelize.INTEGER,
+        defaultValue: 0,
       },
       location: {
         type: Sequelize.STRING,
@@ -37,6 +45,24 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: "Users",
+          key: "id",
+        },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
+      },
+      CategoryId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "Categories",
+          key: "id",
+        },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
+      },
+      TypeId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "Types",
           key: "id",
         },
         onUpdate: "CASCADE",

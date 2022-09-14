@@ -1,0 +1,247 @@
+"use strict";
+
+module.exports = {
+  async up(queryInterface, Sequelize) {
+    /**
+     * Add seed commands here.
+     *
+     * Example:
+     * await queryInterface.bulkInsert('Accommodation', [{
+     *   name: 'John Doe',
+     *   isBetaMember: false
+     * }], {});
+     */
+    const dateNow = new Date();
+    await queryInterface.bulkInsert("Accommodation", [
+      {
+        name: "The Ocean View at Balian Beach",
+        imgUrl: "https://a0.muscache.com/im/pictures/edade476-5c76-49a0-b80d-97290755fa2d.jpg?im_w=720",
+        description:
+          "Ocean View adalah vila 2 kamar tidur luas yang menghadap ke Pantai Balian. Vila ini menawarkan segala sesuatu yang diperlukan untuk memutus hubungan dari kehidupan sehari - hari – sarapan organik ala carte, layanan pembantu harian, pijat di vila, dan makan malam yang tersedia sesuai permintaan. Nikmati privasi, suasana yang luas, dan pemandangan matahari terbenam yang menakjubkan selama liburan santai Anda.",
+        roomCapacity: 4,
+        price: 500_000,
+        facility: "Akses ke pantai, Area kerja khusus, Kolam renang, TV, WIFI, Parkir gratis di areal properti, Hewan peliharaan diizinkan masuk, AC",
+        serviceCharge: 50_000,
+        location: "Tabanan, Bali, Indonesia",
+        UserId: 1,
+        CategoryId: 7,
+        TypeId: 4,
+        createdAt: dateNow,
+        updatedAt: dateNow,
+      },
+      {
+        name: "Villa Lou - Villa Mewah Di Tepi Pantai",
+        imgUrl: "https://a0.muscache.com/im/pictures/miso/Hosting-21270763/original/1cb16bad-cbde-4e5a-a4ac-a2888bd9897f.jpeg?im_w=720",
+        description:
+          "Apakah Anda suka matahari terbenam yang indah, berjalan - jalan di pantai, atau berenang di kolam renang pribadi Anda? Jika ya, Villa Lou adalah tempat yang sempurna untuk Anda. Villa ini berlokasi tepat di pantai dengan akses pribadi. Lengkap dengan suasana yang cukup asri dan indah yang akan memberikan momen terbaik dalam hidup Anda.",
+        roomCapacity: 6,
+        price: 800_000,
+        facility: "Akses ke pantai, Area kerja khusus, Kolam renang, TV, WIFI, Parkir gratis di areal properti, Hewan peliharaan diizinkan masuk, AC",
+        serviceCharge: 50_000,
+        location: "Lovina Seririt, Bali, Indonesia",
+        UserId: 1,
+        CategoryId: 3,
+        TypeId: 1,
+        createdAt: dateNow,
+        updatedAt: dateNow,
+      },
+      {
+        name: "Villa Lovina - beach",
+        imgUrl: "https://a0.muscache.com/im/pictures/55c46098-cbc9-4a9f-920a-178895420e93.jpg?im_w=720",
+        description:
+          "Apakah Anda suka matahari terbenam yang indah, berjalan - jalan di pantai, atau berenang di kolam renang pribadi Anda? Jika ya, Villa Lou adalah tempat yang sempurna untuk Anda. Villa ini berlokasi tepat di pantai dengan akses pribadi. Lengkap dengan suasana yang cukup asri dan indah yang akan memberikan momen terbaik dalam hidup Anda.",
+        roomCapacity: 5,
+        price: 500_000,
+        facility: "Akses ke pantai, Area kerja khusus, Kolam renang, TV, WIFI, Parkir gratis di areal properti, Hewan peliharaan diizinkan masuk, AC",
+        serviceCharge: 50_000,
+        location: "Seririt, Bali, Indonesia",
+        UserId: 2,
+        CategoryId: 3,
+        TypeId: 1,
+        createdAt: dateNow,
+        updatedAt: dateNow,
+      },
+      {
+        name: "Lily Beach Resort & Spa",
+        imgUrl: "https://a0.muscache.com/im/pictures/fa2ed873-e726-4e6d-ab1a-28bc7c69d805.jpg?im_w=960",
+        description:
+          "Apakah Anda suka matahari terbenam yang indah, berjalan - jalan di pantai, atau berenang di kolam renang pribadi Anda? Jika ya, Villa Lou adalah tempat yang sempurna untuk Anda. Villa ini berlokasi tepat di pantai dengan akses pribadi. Lengkap dengan suasana yang cukup asri dan indah yang akan memberikan momen terbaik dalam hidup Anda.",
+        roomCapacity: 5,
+        price: 350_000,
+        facility: "Akses ke pantai, Area kerja khusus, Kolam renang, TV, WIFI, Parkir gratis di areal properti, Hewan peliharaan diizinkan masuk, AC",
+        serviceCharge: 50_000,
+        location: "Maladewa",
+        UserId: 3,
+        CategoryId: 1,
+        TypeId: 4,
+        createdAt: dateNow,
+        updatedAt: dateNow,
+      },
+      {
+        name: "Lily Beach Resort & Spa",
+        imgUrl: "https://a0.muscache.com/im/pictures/fa2ed873-e726-4e6d-ab1a-28bc7c69d805.jpg?im_w=960",
+        description: "SEMUA PEMENANG PENGHARGAAN RESOR INKLUSIF Lily Beach dengan bangga sekali lagi memenangkan Penghargaan Resor All Inclusive bergengsi tahun ini.",
+        roomCapacity: 4,
+        price: 200_000,
+        facility: "Akses ke pantai, Area kerja khusus, Kolam renang, TV, WIFI, Parkir gratis di areal properti, Hewan peliharaan diizinkan masuk, AC",
+        serviceCharge: 50_000,
+        location: "Maladewa",
+        UserId: 3,
+        CategoryId: 1,
+        TypeId: 4,
+        createdAt: dateNow,
+        updatedAt: dateNow,
+      },
+      {
+        name: "Room, in Malinska - island Krk, Balcony",
+        imgUrl: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-597640297944928649/original/dda9a835-24e2-4dd4-a767-091dce34b4df.jpeg?im_w=960",
+        description: "SEMUA PEMENANG PENGHARGAAN RESOR INKLUSIF Lily Beach dengan bangga sekali lagi memenangkan Penghargaan Resor All Inclusive bergengsi tahun ini.",
+        roomCapacity: 4,
+        price: 700_000,
+        facility: "Akses ke pantai, Area kerja khusus, Kolam renang, TV, WIFI, Parkir gratis di areal properti, Hewan peliharaan diizinkan masuk, AC",
+        serviceCharge: 50_000,
+        location: "Bogovići, Primorsko-goranska županija, Kroasia",
+        UserId: 3,
+        CategoryId: 9,
+        TypeId: 3,
+        createdAt: dateNow,
+        updatedAt: dateNow,
+      },
+      {
+        name: "Banglo Lumbung Tradisional Hollywood Twin",
+        imgUrl: "https://a0.muscache.com/im/pictures/0542782a-bb78-46fe-946a-ed3eb30169eb.jpg?im_w=960",
+        description:
+          "Kami berlokasi di pantai timur di Manta Dive Resort Gili Trawangan, dekat dengan semua pantai, bar, dan restoran terbaik di pulau ini. Banglo - banglo ini terletak di sekitar taman yang rindang dan kolam tamu khusus yang terletak di bagian belakang resor jauh dari keramaian jalan utama.",
+        roomCapacity: 4,
+        price: 400_000,
+        facility: "Akses ke pantai, Area kerja khusus, Kolam renang, TV, WIFI, Parkir gratis di areal properti, Hewan peliharaan diizinkan masuk, AC",
+        serviceCharge: 50_000,
+        location: "Pemenang, Nusa Tenggara Barat, Indonesia",
+        UserId: 3,
+        CategoryId: 8,
+        TypeId: 4,
+        createdAt: dateNow,
+        updatedAt: dateNow,
+      },
+      {
+        name: "Point Pleasant Resort Unit B19",
+        imgUrl: "https://a0.muscache.com/im/pictures/fa0eadb5-5dcd-485b-912e-6a8071cbf4e0.jpg?im_w=960",
+        description: "Point Pleasant Resort - TM. Terletak sempurna di tengah - tengah resor, vila satu kamar tidur ini berjarak beberapa langkah dari kolam renang dan lobi tengah dan menawarkan pemandangan pulau dan air yang indah.",
+        roomCapacity: 3,
+        price: 600_000,
+        facility: "Akses ke pantai, Area kerja khusus, Kolam renang, TV, WIFI, Parkir gratis di areal properti, Hewan peliharaan diizinkan masuk, AC",
+        serviceCharge: 50_000,
+        location: "St. Thomas, Kepulauan Virgin Amerika Serikat",
+        UserId: 3,
+        CategoryId: 10,
+        TypeId: 2,
+        createdAt: dateNow,
+        updatedAt: dateNow,
+      },
+      {
+        name: "Rumah Bambu Eco",
+        imgUrl: "https://a0.muscache.com/im/pictures/miso/Hosting-24043648/original/3a682176-c8e2-4612-88d1-f441e01b0346.jpeg?im_w=960",
+        description:
+          "Penginapan sempurna Anda di Bali ada di sini. Kami menganggap relaksasi dengan serius. Hideout Beehive adalah salah satu rumah bambu paling populer di Bali, dengan pemandangan sungai yang spektakuler dan kolam jacuzzi - sempurna untuk liburan singkat bersama teman - teman Anda.",
+        roomCapacity: 2,
+        price: 300_000,
+        facility: "Akses ke pantai, Area kerja khusus, Kolam renang, TV, WIFI, Parkir gratis di areal properti, Hewan peliharaan diizinkan masuk, AC",
+        serviceCharge: 50_000,
+        location: "Selat, Bali, Indonesia",
+        UserId: 3,
+        CategoryId: 2,
+        TypeId: 1,
+        createdAt: dateNow,
+        updatedAt: dateNow,
+      },
+      {
+        name: "HORIZON persembunyian - Rumah Bambu Ramah Lingkungan",
+        imgUrl: "https://a0.muscache.com/im/pictures/miso/Hosting-36165132/original/64a7e292-1cf6-4653-a6e3-75dd196038b7.jpeg?im_w=960",
+        description:
+          "Hideout Horizon adalah tambahan terbesar dari Hideout Family. Rumah serba bambu paling petualang siap menyambut mereka yang mencari sedikit petualangan hutan di Karangasem Timur. Staycation kecil Anda yang sempurna di Bali ada di sini. Kami menganggap relaksasi dengan serius.",
+        roomCapacity: 2,
+        price: 500_000,
+        facility: "Akses ke pantai, Area kerja khusus, Kolam renang, TV, WIFI, Parkir gratis di areal properti, Hewan peliharaan diizinkan masuk, AC",
+        serviceCharge: 50_000,
+        location: "Selat, Bali, Indonesia",
+        UserId: 2,
+        CategoryId: 2,
+        TypeId: 1,
+        createdAt: dateNow,
+        updatedAt: dateNow,
+      },
+      {
+        name: "Kastilku Khaokho : Malam seperti dongeng",
+        imgUrl: "https://a0.muscache.com/im/pictures/974fbbcd-af6a-444d-935e-f11dd5c6f02d.jpg?im_w=720",
+        description:
+          "Manfaatkan momen indah sebaik - baiknya seperti seorang putri dan putri di kastel dengan semua yang Anda butuhkan untuk liburan yang sempurna di distrik paling dingin di Thailand tengah. Ruang tamu pribadi dengan balkon besar sangat cocok untuk menyaksikan matahari terbenam setelah seharian berkeliling.Cahaya alami dan udara segar menerangi tempat yang nyaman ini.Semua kastil dan taman di adalah milik Anda. Glamping untuk anak - anak dapat diatur.",
+        roomCapacity: 2,
+        price: 600_000,
+        facility: "Akses ke pantai, Area kerja khusus, Kolam renang, TV, WIFI, Parkir gratis di areal properti, Hewan peliharaan diizinkan masuk, AC",
+        serviceCharge: 50_000,
+        location: "Thung Samo, Phetchabun, Thailand",
+        UserId: 3,
+        CategoryId: 4,
+        TypeId: 1,
+        createdAt: dateNow,
+        updatedAt: dateNow,
+      },
+      {
+        name: "Vila Pondok Bambu di dekat Pantai Bingin",
+        imgUrl: "https://a0.muscache.com/im/pictures/b0fdf5d3-1b33-4390-9110-6fdb84901110.jpg?im_w=720",
+        description:
+          "Temukan bagian surga di perumahan arsitektur bambu Bali yang menginspirasi ini. Manjakan diri dengan kemewahan rumah yang merayakan kehidupan tropis dengan berbagai ruang tamu terbuka, 4 bungalow AC yang nyaman dan ensuite, kolam renang, kabinana, dan taman pribadi yang rindang.",
+        roomCapacity: 4,
+        price: 300_000,
+        facility: "Akses ke pantai, Area kerja khusus, Kolam renang, TV, WIFI, Parkir gratis di areal properti, Hewan peliharaan diizinkan masuk, AC",
+        serviceCharge: 50_000,
+        location: "Bingin Beach, Bali, Indonesia",
+        UserId: 3,
+        CategoryId: 4,
+        TypeId: 1,
+        createdAt: dateNow,
+        updatedAt: dateNow,
+      },
+      {
+        name: "Canggu Private Villa 4 bedroom Banyan Canggu",
+        imgUrl: "https://a0.muscache.com/im/pictures/798984ba-fef5-46c1-aa07-137d2d2998e9.jpg?im_w=960",
+        description: "The Banyan Canggu is a spacious villa with plenty of garden space. Perfect for families that are looking to stay and enjoy the beaches and cafes in the Canggu area. The main Seminyak food and shopping area is also just a short drive away.",
+        roomCapacity: 4,
+        price: 300_000,
+        facility: "Akses ke pantai, Area kerja khusus, Kolam renang, TV, WIFI, Parkir gratis di areal properti, Hewan peliharaan diizinkan masuk, AC",
+        serviceCharge: 50_000,
+        location: "Kuta Utara, Bali, Indonesia",
+        UserId: 3,
+        CategoryId: 3,
+        TypeId: 4,
+        createdAt: dateNow,
+        updatedAt: dateNow,
+      },
+      {
+        name: "Villa The Spot - Kamar B6",
+        imgUrl: "https://a0.muscache.com/im/pictures/36e5b4b5-0f4f-4703-a2c3-7a3cc9d9d82e.jpg?im_w=960",
+        description: "Vila pribadi yang damai dirancang oleh arsitek ternama di bukit paling eksklusif di Chaweng. Vila ini dikelilingi taman yang indah dan menawarkan pemandangan laut dan pegunungan yang paling menakjubkan di koh Samui.",
+        roomCapacity: 4,
+        price: 500_000,
+        facility: "Akses ke pantai, Area kerja khusus, Kolam renang, TV, WIFI, Parkir gratis di areal properti, Hewan peliharaan diizinkan masuk, AC",
+        serviceCharge: 50_000,
+        location: "Ko Samui District, Surat Thani, Thailand",
+        UserId: 3,
+        CategoryId: 3,
+        TypeId: 4,
+        createdAt: dateNow,
+        updatedAt: dateNow,
+      },
+    ]);
+  },
+
+  async down(queryInterface, Sequelize) {
+    /**
+     * Add commands to revert seed here.
+     *
+     * Example:
+     * await queryInterface.bulkDelete('People', null, {});
+     */
+    await queryInterface.bulkDelete("Accommodation", null, {});
+  },
+};
