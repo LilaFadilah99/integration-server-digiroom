@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Accommodation.belongsTo(models.User, { foreignKey: "UserId" });
       Accommodation.hasMany(models.AccommodationFacility, { foreignKey: "AccommodationId" });
+      Accommodation.hasMany(models.Favorite, { foreignKey: "AccomodationId" });
     }
   }
   Accommodation.init(

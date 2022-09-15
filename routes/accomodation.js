@@ -2,12 +2,17 @@ const router = require("express").Router();
 const AccomodationController = require("../controllers/AccomodationController");
 const { authentication, authorization } = require("../middlewares/auth");
 
-router.use(authentication);
 router.get("/", AccomodationController.getAccomodation);
+router.get("/all/:id", AccomodationController.getAccomodationById);
+router.use(authentication);
+// for customer
+router.get("/favorites", AccomodationController.getDataFavorites);
+router.post("/favorites/:id", AccomodationController.addDataFavorites);
+router.delete("/favorites/:id", AccomodationController.deleteDataFavorite);
+
 router.post("/", AccomodationController.addAccomodation);
 router.put("/:id", authorization, AccomodationController.editAccomodation);
 router.patch("/status/:id", authorization, AccomodationController.editStatusAccomodation);
-router.get("/:id", authorization, AccomodationController.getAccomodationById);
 router.delete("/:id", authorization, AccomodationController.deleteAccomodation);
 
 module.exports = router;

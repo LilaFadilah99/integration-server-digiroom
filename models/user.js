@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       User.hasMany(models.Accommodation, { foreignKey: "UserId" });
       User.hasMany(models.Account, { foreignKey: "UserId" });
+      User.hasMany(models.Favorite, { foreignKey: "UserId" });
     }
   }
   User.init(
@@ -35,7 +36,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         unique: {
           args: true,
-          msg: 'Email is already exist'
+          msg: "Email is already exist",
         },
         validate: {
           notNull: {

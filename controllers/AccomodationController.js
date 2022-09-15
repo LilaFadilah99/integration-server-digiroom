@@ -1,4 +1,4 @@
-const { Accommodation, History, User } = require("../models");
+const { Accommodation, History, User, Favorite } = require("../models");
 
 class AccomodationController {
   static async getAccomodation(request, response, next) {
@@ -55,7 +55,7 @@ class AccomodationController {
   }
   static async getAccomodationById(request, response, next) {
     let { id } = request.params;
-    let updatedBy = request.user.email;
+    // let updatedBy = request.user.email;
     try {
       let accomodation = await Accommodation.findByPk(id);
       if (!accomodation) throw { message: "Data Not Found", status: 404 };
@@ -98,6 +98,53 @@ class AccomodationController {
       let history = await History.create({ name, description: historyDescription, updatedBy });
 
       response.status(200).json(returning[0]);
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  // post favorite
+  static async addDataFavorites(request, response, next) {
+    let { id } = request.params;
+    let UserId = request.user.id;
+    try {
+      const accomodation = await Accommodation.findOne({ where: { id: id } });
+      if (!accomodation) throw { name: "NotFound" };
+
+      const favorite = await Favorite.findOne({ where: { UserId: UserId, AccomodationId: id } });
+      if (favorite) throw { message: "Favorite data has been added", status: 400 };
+
+      const addFavorite = await Favorite.create({ UserId, AccomodationId: id });
+      response.status(201).json(addFavorite);
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  // get favorite
+  static async getDataFavorites(request, response, next) {
+    const { id, role } = request.user;
+    console.log(id);
+    try {
+      if (role !== "customer") throw { message: "only customer can get the data", status: 400 };
+      const favorite = await Favorite.findAll({ where: { UserId: id }, include: [Accommodation, User], order: [["updatedAt", "DESC"]] });
+      console.log(favorite);
+      if (!favorite) throw { name: "NotFound" };
+      response.status(200).json(favorite);
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  static async deleteDataFavorite(request, response, next) {
+    let { id } = request.params;
+    let UserId = request.user.id;
+
+    try {
+      const favorite = await Favorite.destroy({ where: { UserId: UserId, AccomodationId: id } });
+      if (!favorite) throw { name: "NotFound" };
+
+      response.status(200).json(`Success delete favorite`);
     } catch (error) {
       next(error);
     }
